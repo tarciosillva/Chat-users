@@ -1,5 +1,4 @@
 const baseURL = 'http://localhost:3000'
-const TOKEN = sessionStorage.getItem('TOKEN')
 
 import { UserInterface } from "../interfaces/user.interface"
 
@@ -22,6 +21,8 @@ export async function fetchDataGetAllUsers() {
 }
 
 export async function fetchDataLoginAdmin(object: { telefone: string, password: string }) {
+    const TOKEN = sessionStorage.getItem('TOKEN')
+
     try {
         const response = await fetch(`${baseURL}/auth/authentication`, {
             method: 'POST',
@@ -40,6 +41,8 @@ export async function fetchDataLoginAdmin(object: { telefone: string, password: 
 }
 
 export async function fetchDataPostUser(user: userCreateProps) {
+    const TOKEN = sessionStorage.getItem('TOKEN')
+
     try {
         const response = await fetch(`${baseURL}/users`, {
             method: 'POST',
@@ -58,6 +61,8 @@ export async function fetchDataPostUser(user: userCreateProps) {
 }
 
 export async function fetchDataPutUser(user: UserInterface) {
+    const TOKEN = sessionStorage.getItem('TOKEN')
+
     try {
         const response = await fetch(`${baseURL}/users/${user._id}`, {
             method: 'PUT',
@@ -76,6 +81,8 @@ export async function fetchDataPutUser(user: UserInterface) {
 }
 
 export async function fetchDataDeleteUser(userId: string) {
+    const TOKEN = sessionStorage.getItem('TOKEN')
+
     try {
         const response = await fetch(`${baseURL}/users/${userId}`, {
             method: 'DELETE',
